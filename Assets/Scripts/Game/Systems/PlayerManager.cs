@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Game/Systems/PlayerManager")]
 public class PlayerManager : ScriptableObject {
 
-    List<Player> players = new List<Player>();
+    [System.NonSerialized] List<Player> players = new List<Player>();
 
     public void AddPlayer(Player player) {
         if (!players.Contains(player))

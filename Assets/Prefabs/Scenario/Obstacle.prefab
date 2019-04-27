@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1865698356245014558}
+  - component: {fileID: 4057395332965614580}
   - component: {fileID: 1865698356245014559}
   - component: {fileID: 1865698356245014556}
   - component: {fileID: 2817915101028545979}
@@ -33,6 +34,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4057395332965614580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865698356245014557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b0820c7077f37468d523c2b2b01b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleManager: {fileID: 11400000, guid: 75f5d9a41bf079940bf57469b699a675, type: 2}
+  closenessRadius: 6
+  repellingForce:
+    min: 0
+    max: 60
 --- !u!114 &1865698356245014559
 MonoBehaviour:
   m_ObjectHideFlags: 0

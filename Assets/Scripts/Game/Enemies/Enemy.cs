@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 
     public EnemyData data;
     public PlayerManager playerManager;
+    public ObstacleManager obstacleManager;
 
     [ViewOnly] public bool dead;
 
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour {
 
     void FixedUpdate() {
         if (!dead) {
+            obstacleManager.ApplyRepellingForceTo(body);
             PursuePlayerIfAny();
             ApplyConstraints();
         }
