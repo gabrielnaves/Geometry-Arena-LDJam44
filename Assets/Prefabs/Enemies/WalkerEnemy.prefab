@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7482e2a79f594a4a8ef99a6d2b371eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 7b344dadaf9ea57419e7aa418b1263c5, type: 2}
   playerManager: {fileID: 11400000, guid: c6aeba9670619304f97d30e3f0211ddf, type: 2}
 --- !u!120 &1924337239024626647
 LineRenderer:
