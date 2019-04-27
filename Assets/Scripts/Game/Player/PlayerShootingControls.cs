@@ -6,7 +6,7 @@ public class PlayerShootingControls : MonoBehaviour {
 
     public PlayerData data;
     public InputData input;
-    public Transform projectilePoint;
+    public Transform bulletPos;
 
     bool cooldown;
     float cooldownTimer;
@@ -25,7 +25,7 @@ public class PlayerShootingControls : MonoBehaviour {
     }
 
     void Shoot() {
-        var projectile = Instantiate(data.projectile, projectilePoint.position, Quaternion.identity);
-        projectile.GetComponent<Projectile>().SetVelocity(transform.right * data.projectileSpeed);
+        var bullet = Instantiate(data.bullet, bulletPos.position, Quaternion.identity);
+        bullet.GetComponent<Bullet>().SetVelocity(transform.right * data.bulletSpeed);
     }
 }

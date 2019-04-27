@@ -14,24 +14,24 @@ public class PlayerData : ScriptableObject {
     public float startingShootCooldown;
     [ViewOnly] public float shootCooldown;
     public GameObject startingProjectile;
-    [ViewOnly] public GameObject projectile;
-    public float startingProjectileSpeed;
-    [ViewOnly] public float projectileSpeed;
+    [ViewOnly] public GameObject bullet;
+    public float startingBulletSpeed;
+    [ViewOnly] public float bulletSpeed;
     #endregion
 
     public void Setup() {
         acceleration = startingAcceleration;
         maxSpeed = startingMaxSpeed;
         shootCooldown = startingShootCooldown;
-        projectile = startingProjectile;
-        projectileSpeed = startingProjectileSpeed;
+        bullet = startingProjectile;
+        bulletSpeed = startingBulletSpeed;
     }
 
     public void Reset() {
         acceleration = 0;
         maxSpeed = 0;
         shootCooldown = 0;
-        projectile = null;
-        projectileSpeed = 0;
+        bullet = null;
+        bulletSpeed = 0;
     }
 }

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Projectile : MonoBehaviour {
+public class Bullet : MonoBehaviour {
 
     public float lifetime;
 
     Rigidbody2D body;
     Vector2 velocity;
-    ParticleSystem destructionEffect;
+    DestructionEffect destructionEffect;
 
     public void SetVelocity(Vector2 velocity) {
         this.velocity = velocity;
@@ -17,8 +17,7 @@ public class Projectile : MonoBehaviour {
 
     void Awake() {
         body = GetComponent<Rigidbody2D>();
-        destructionEffect = GetComponentInChildren<ParticleSystem>();
-        destructionEffect.Stop();
+        destructionEffect = GetComponentInChildren<DestructionEffect>();
     }
 
     void Start() {
@@ -44,7 +43,7 @@ public class Projectile : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         GetComponent<LineRenderer>().enabled = false;
         destructionEffect.Play();
-        yield return new WaitForSeconds(destructionEffect.main.startLifetime.constant);
+        yield return new WaitForSeconds(destructionEffect.duration);
         Destroy(gameObject);
     }
 }

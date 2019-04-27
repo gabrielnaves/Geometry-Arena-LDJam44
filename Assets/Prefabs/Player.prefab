@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: ac8e8018d955e88448597258dbde8b53, type: 2}
   input: {fileID: 11400000, guid: f5ae70b4ad3385d4b9752a656dfde096, type: 2}
-  projectilePoint: {fileID: 5585508771194817003}
+  bulletPos: {fileID: 5585508771194817003}
 --- !u!120 &1604558696918132604
 LineRenderer:
   m_ObjectHideFlags: 0
