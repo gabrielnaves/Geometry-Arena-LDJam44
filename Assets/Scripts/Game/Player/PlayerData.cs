@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Game/PlayerData")]
+[CreateAssetMenu(menuName="Game/Data/PlayerData")]
 public class PlayerData : ScriptableObject {
 
     public float startingAcceleration;

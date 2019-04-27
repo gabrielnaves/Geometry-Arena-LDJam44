@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerControls : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
     public PlayerData data;
     public InputData input;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Game/InputData")]
+[CreateAssetMenu(menuName="Game/Data/InputData")]
 public class InputData : ScriptableObject {
 
     [System.NonSerialized] public bool boost;
