@@ -1182,6 +1182,7 @@ EdgeCollider2D:
   - {x: 50, y: 28.125}
   - {x: 50, y: -28.125}
   - {x: -50, y: -28.125}
+  - {x: -50, y: 28.125}
 --- !u!1001 &1512279735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1668,6 +1669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810897955160041717, guid: dc34f876ee94fd44db70c57793ec4d01,
+        type: 3}
+      propertyPath: orthographic size
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5810897955558665152, guid: dc34f876ee94fd44db70c57793ec4d01,
         type: 3}
