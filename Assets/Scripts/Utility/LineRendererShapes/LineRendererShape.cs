@@ -2,39 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(LineRenderer))]
-public class LineRendererShape : MonoBehaviour {
+namespace Utility {
 
-    public int vertices = 3;
-    public float radius = 1;
-    public float angleOffset;
+    [RequireComponent(typeof(LineRenderer))]
+    public class LineRendererShape : MonoBehaviour {
 
-    LineRenderer line;
+        public int vertices = 3;
+        public float radius = 1;
+        public float angleOffset;
 
-    void Awake() {
-        ApplyConstraints();
-        line = GetComponent<LineRenderer>();
-        line.useWorldSpace = false;
-        line.loop = true;
-        SetupPositions();
-    }
+        LineRenderer line;
 
-    void ApplyConstraints() {
-        if (vertices < 3) vertices = 3;
-    }
+        void Awake() {
+            ApplyConstraints();
+            line = GetComponent<LineRenderer>();
+            line.useWorldSpace = false;
+            line.loop = true;
+            SetupPositions();
+        }
 
-    void SetupPositions() {
-        Vector3[] positions = new Vector3[vertices];
-        float angle = angleOffset * Mathf.Deg2Rad;
-        float angleDistance = 2 * Mathf.PI / vertices;
-        for (int i = 0; i < vertices; ++i, angle += angleDistance)
-            positions[i] = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
-        line.positionCount = vertices;
-        line.SetPositions(positions);
-    }
+        void ApplyConstraints() {
+            if (vertices < 3) vertices = 3;
+        }
 
-    void Update() {
-        ApplyConstraints();
-        SetupPositions();
+        void SetupPositions() {
+            Vector3[] positions = new Vector3[vertices];
+            float angle = angleOffset * Mathf.Deg2Rad;
+            float angleDistance = 2 * Mathf.PI / vertices;
+            for (int i = 0; i < vertices; ++i, angle += angleDistance)
+                positions[i] = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
+            line.positionCount = vertices;
+            line.SetPositions(positions);
+        }
+
+        void Update() {
+            ApplyConstraints();
+            SetupPositions();
+        }
     }
 }
