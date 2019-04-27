@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1924337239024626665}
-  - component: {fileID: 1924337239024626664}
+  - component: {fileID: 4650475114177747273}
   - component: {fileID: 1924337239024626647}
   - component: {fileID: 4127409633427208088}
+  - component: {fileID: 3004767610341631816}
   m_Layer: 13
   m_Name: WalkerEnemy
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1924337239024626664
+--- !u!114 &4650475114177747273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,12 +44,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1924337239024626666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a5a0da5024cb04182a09e78584cca6, type: 3}
+  m_Script: {fileID: 11500000, guid: b7482e2a79f594a4a8ef99a6d2b371eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vertices: 4
-  radius: 1
-  angleOffset: 45
+  playerManager: {fileID: 11400000, guid: c6aeba9670619304f97d30e3f0211ddf, type: 2}
 --- !u!120 &1924337239024626647
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -172,6 +171,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4142137, y: 1.414214}
   m_EdgeRadius: 0
+--- !u!50 &3004767610341631816
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924337239024626666}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 2.0000007
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1924337239129810275
 GameObject:
   m_ObjectHideFlags: 0
