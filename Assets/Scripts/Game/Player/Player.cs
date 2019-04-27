@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    static public Player instance { get; private set; }
-
     public PlayerManager playerManager;
 
     PlayerMovement playerMovement;
+    PlayerShootingControls shootControls;
 
     void Awake() {
-        instance = (Player)Utility.Singleton.Setup(this, instance);
         playerMovement = GetComponent<PlayerMovement>();
+        shootControls = GetComponent<PlayerShootingControls>();
         playerManager.AddPlayer(this);
     }
 

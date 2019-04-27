@@ -16,3 +16,10 @@ MonoBehaviour:
   acceleration: 0
   startingMaxSpeed: 10
   maxSpeed: 0
+  startingShootCooldown: 1
+  shootCooldown: 0
+  startingProjectile: {fileID: 552135482398843943, guid: 3130c8ceb98a2e84ebb9d0dab0932f9f,
+    type: 3}
+  projectile: {fileID: 0}
+  startingProjectileSpeed: 20
+  projectileSpeed: 0

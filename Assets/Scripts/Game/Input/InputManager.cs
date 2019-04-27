@@ -10,5 +10,7 @@ public class InputManager : MonoBehaviour {
         input.boost = Input.GetKey(KeyCode.Space);
         input.boostDown = Input.GetKeyDown(KeyCode.Space);
         input.mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        input.action = Input.GetMouseButton(0);
+        input.actionDown = Input.GetMouseButtonDown(0);
     }
 }
