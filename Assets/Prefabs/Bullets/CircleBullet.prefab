@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 552135482398843940}
   - component: {fileID: 7696160075535275864}
-  - component: {fileID: 552135482398843941}
   - component: {fileID: 552135482398843942}
   - component: {fileID: 7113682007250214902}
   - component: {fileID: 8159404785503996398}
   m_Layer: 11
-  m_Name: CircleProjectile
+  m_Name: CircleBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,22 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca64054440b11942bdcb58527e4a538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 1
---- !u!114 &552135482398843941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552135482398843943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93a5a0da5024cb04182a09e78584cca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vertices: 16
-  radius: 0.25
-  angleOffset: 0
+  lifetime: 1.2
 --- !u!120 &552135482398843942
 LineRenderer:
   m_ObjectHideFlags: 0

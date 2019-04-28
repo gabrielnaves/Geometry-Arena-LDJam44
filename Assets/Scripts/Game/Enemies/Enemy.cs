@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public EnemyData data;
+    public EnemyManager manager;
     public PlayerManager playerManager;
     public ObstacleManager obstacleManager;
 
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour {
     void Awake() {
         body = GetComponentInChildren<Rigidbody2D>();
         destructionEffect = GetComponentInChildren<DestructionEffect>();
+        manager.AddEnemy(this);
     }
 
     void Start() {
@@ -64,5 +66,9 @@ public class Enemy : MonoBehaviour {
         destructionEffect.Play();
         yield return new WaitForSeconds(destructionEffect.duration);
         Destroy(gameObject);
+    }
+
+    void OnDestroy() {
+        manager.RemoveEnemy(this);
     }
 }

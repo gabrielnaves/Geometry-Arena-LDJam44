@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281133148fd140a42b61a728cd62d3a8, type: 3}
+  m_Name: WaveData
+  m_EditorClassIdentifier: 
+  currentWave: 0
+  enemies:
+  - prefab: {fileID: 1924337239024626666, guid: 23c1066fbd4680242a18397c7143972d,
+      type: 3}
+    minWave: 0
+    startingEnemyAmount: 6
+    amountIncreaseRange:
+      min: 6
+      max: 10
