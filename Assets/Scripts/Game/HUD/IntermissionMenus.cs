@@ -40,8 +40,7 @@ public class IntermissionMenus : MonoBehaviour {
         yield return new WaitUntil(() => upgradeMenu.IsClosed());
         // Enemy upgrades
         enemyUpgradeMenu.ShowEnemyUpgrade();
-        yield return null;
-        yield return new WaitUntil(() => enemyUpgradeMenu.Hidden());
+        yield return new WaitUntil(() => enemyUpgradeMenu.IsDone());
         // End
         canvasGroup.blocksRaycasts = false;
         fader.RequestFadeOut();

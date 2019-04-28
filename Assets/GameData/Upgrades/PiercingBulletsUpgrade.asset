@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: <b>Piercing Bullets</b>
   description: Hit multiple enemies at once for maximum carnage!
-  startingCost: 20
+  startingCost: 40
   costIncreasePerUse: 0
   limited: 1
   maxUses: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: <b>Big Bullets</b>
   description: Troubles aiming? Not with these babies.
-  startingCost: 10
+  startingCost: 15
   costIncreasePerUse: 0
   limited: 1
   maxUses: 1

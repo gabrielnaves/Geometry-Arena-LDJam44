@@ -328,10 +328,10 @@ MonoBehaviour:
     upgrades:
     - {fileID: 11400000, guid: 9345267b805a817438574d538b67608c, type: 2}
     - {fileID: 11400000, guid: ed5aa8cd0065cc849b93b8d62e479e0a, type: 2}
-    - {fileID: 11400000, guid: ff855d36ff8f6d246b6719d9e70a2e25, type: 2}
+    - {fileID: 11400000, guid: f0bd8453075b3644eb8f67ec128b4e02, type: 2}
   - tierWave: 2
     upgrades:
-    - {fileID: 11400000, guid: f0bd8453075b3644eb8f67ec128b4e02, type: 2}
+    - {fileID: 11400000, guid: ff855d36ff8f6d246b6719d9e70a2e25, type: 2}
     - {fileID: 11400000, guid: bed729d90d5ef5f49817d6b04bed5f55, type: 2}
   - tierWave: 5
     upgrades:
@@ -539,11 +539,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82264a8f8d0f5f34dae6fb95e4dff69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveData: {fileID: 11400000, guid: 2b3b3ec12ad7a49449494fd3873c3df7, type: 2}
+  upgradeText: {fileID: 938046645}
   upgrades:
   - {fileID: 11400000, guid: 1aded565a5c70594f9a15b21cd4731e9, type: 2}
   - {fileID: 11400000, guid: 04df7d9d6f28f7a47a6f792aeeaa524b, type: 2}
   - {fileID: 11400000, guid: 92836d36bad162a46acc57c007d9da16, type: 2}
-  upgradeText: {fileID: 938046645}
 --- !u!1001 &286110786
 PrefabInstance:
   m_ObjectHideFlags: 0

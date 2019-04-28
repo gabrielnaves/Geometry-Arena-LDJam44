@@ -15,7 +15,7 @@ MonoBehaviour:
   startingHealth: 10
   health: 0
   dead: 0
-  damagedTime: 0.6
+  damagedTime: 1.5
   blinkTime: 0.1
   startingAcceleration: 20
   acceleration: 0
@@ -34,3 +34,4 @@ MonoBehaviour:
   damage: 0
   laserSight: 0
   bigBullets: 0
+  piercingBullets: 0

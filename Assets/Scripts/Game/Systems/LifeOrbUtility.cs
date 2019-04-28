@@ -12,6 +12,6 @@ public class LifeOrbUtility : MonoBehaviour {
 
     public void CreateOrbsAt(Vector3 position, int amount) {
         for (int i = 0; i < amount; ++i)
-            Instantiate(lifeOrbPrefab, position, Quaternion.identity, transform);
+            Instantiate(lifeOrbPrefab, position + (Vector3)Random.insideUnitCircle, Quaternion.identity, transform);
     }
 }
