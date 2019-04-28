@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LifeOrb : MonoBehaviour {
 
+    public float lifetime;
     public float proximity;
     public float collectionTime;
     public PlayerManager playerManager;
@@ -11,11 +12,22 @@ public class LifeOrb : MonoBehaviour {
 
     bool collected;
 
+    void Start() {
+        StartCoroutine(LifetimeRoutine());
+    }
+
+    IEnumerator LifetimeRoutine() {
+        yield return new WaitForSeconds(lifetime);
+        Destroy(gameObject);
+    }
+
     void Update() {
         if (!collected) {
             var closestPlayerInfo = playerManager.GetNearestPlayerInfo(transform.position);
-            if (closestPlayerInfo != null && closestPlayerInfo.Item2 < proximity * proximity)
+            if (closestPlayerInfo != null && closestPlayerInfo.Item2 < proximity * proximity) {
+                StopAllCoroutines();
                 StartCoroutine(MoveTowardsPlayer(closestPlayerInfo.Item1));
+            }
         }
     }
 

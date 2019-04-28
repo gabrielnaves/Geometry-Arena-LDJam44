@@ -5,7 +5,6 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour {
 
     public WaveData waveData;
-    public EnemyManager enemyManager;
 
     Utility.RectRandom rect;
 
@@ -14,11 +13,7 @@ public class WaveManager : MonoBehaviour {
         waveData.Reset();
     }
 
-    void Start() {
-        StartNextWave();
-    }
-
-    void StartNextWave() {
+    public void StartNextWave() {
         waveData.currentWave++;
         StartCoroutine(WaveSpawnRoutine());
     }
@@ -31,15 +26,6 @@ public class WaveManager : MonoBehaviour {
             yield return new WaitForSeconds(waveData.spawnDelay);
         }
         waveData.IncreaseEnemyAmount();
-    }
-
-    void Update() {
-        if (WaveEnded())
-            StartNextWave();
-    }
-
-    bool WaveEnded() {
-        return !enemyManager.HasEnemy();
     }
 
     void OnDestroy() {

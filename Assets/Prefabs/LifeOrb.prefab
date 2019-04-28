@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389b83b86fb2c3c43a1211fd17502ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifetime: 5
   proximity: 10
   collectionTime: 0.75
   playerManager: {fileID: 11400000, guid: c6aeba9670619304f97d30e3f0211ddf, type: 2}

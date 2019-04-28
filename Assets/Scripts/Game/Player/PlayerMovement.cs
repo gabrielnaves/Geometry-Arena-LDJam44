@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void LookAtMousePosition() {
+        body.angularVelocity = 0;
         Vector3 direction = input.mousePosition - transform.position;
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
     }
