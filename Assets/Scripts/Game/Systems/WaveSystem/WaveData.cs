@@ -8,15 +8,22 @@ public class WaveData : ScriptableObject {
     public float spawnDelay;
     public EnemyWaveInfo[] enemies = new EnemyWaveInfo[0];
 
+    public void Setup() {
+        foreach (var enemy in enemies)
+            enemy.Setup();
+    }
+
     public void Reset() {
         currentWave = 0;
+        foreach (var enemy in enemies)
+            enemy.Reset();
     }
 
     public GameObject[] GetEnemiesToGenerate() {
         List<GameObject> enemiesToGenerate = new List<GameObject>();
         foreach (var enemyInfo in enemies) {
             if (currentWave >= enemyInfo.minWave) {
-                for (int i = 0; i < enemyInfo.GetEnemyAmount(); ++i)
+                for (int i = 0; i < enemyInfo.enemyAmount; ++i)
                     enemiesToGenerate.Add(enemyInfo.prefab);
             }
         }
@@ -37,12 +44,14 @@ public class EnemyWaveInfo {
     public int startingEnemyAmount;
     public MinMax amountIncreaseRange;
 
-    [System.NonSerialized] int enemyAmount = 0;
+    [ViewOnly] public int enemyAmount = 0;
 
-    public int GetEnemyAmount() {
-        if (enemyAmount == 0)
-            enemyAmount = startingEnemyAmount;
-        return enemyAmount;
+    public void Setup() {
+        enemyAmount = startingEnemyAmount;
+    }
+
+    public void Reset() {
+        enemyAmount = 0;
     }
 
     public void IncreaseEnemyAmount() {

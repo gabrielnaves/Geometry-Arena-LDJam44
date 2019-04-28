@@ -10,7 +10,7 @@ public class WaveManager : MonoBehaviour {
 
     void Awake() {
         rect = GetComponent<Utility.RectRandom>();
-        waveData.Reset();
+        waveData.Setup();
     }
 
     public void StartNextWave() {
