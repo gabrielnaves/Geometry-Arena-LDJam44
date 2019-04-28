@@ -53,15 +53,13 @@ public class Enemy : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag(Tags.player))
             DamagePlayer(collision.gameObject.GetComponent<Player>());
-        else if (collision.gameObject.CompareTag(Tags.bullet))
-            ReceiveDamage(collision.gameObject.GetComponent<Bullet>().damage);
     }
 
     void DamagePlayer(Player player) {
         player.ReceiveDamage(transform, data.damageDealt);
     }
 
-    void ReceiveDamage(int amount) {
+    public void ReceiveDamage(int amount) {
         NumbersUtility.instance.CreateNumberAt(transform.position + Vector3.up, amount);
         health -= amount;
         if (health <= 0)

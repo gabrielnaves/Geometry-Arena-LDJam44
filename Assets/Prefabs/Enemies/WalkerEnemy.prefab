@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3004767610341631816}
   m_Layer: 13
   m_Name: WalkerEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   manager: {fileID: 11400000, guid: 2565b986898b8b240834909a2c07d280, type: 2}
   playerManager: {fileID: 11400000, guid: c6aeba9670619304f97d30e3f0211ddf, type: 2}
   obstacleManager: {fileID: 11400000, guid: 75f5d9a41bf079940bf57469b699a675, type: 2}
+  health: 0
   dead: 0
 --- !u!120 &1924337239024626647
 LineRenderer:

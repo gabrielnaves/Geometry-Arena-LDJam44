@@ -7,8 +7,10 @@ public class Bullet : MonoBehaviour {
 
     public float lifetime;
     public int damage;
+    public bool piercing;
 
     Rigidbody2D body;
+    Collider2D col;
     Vector2 velocity;
     DestructionEffect destructionEffect;
 
@@ -18,10 +20,13 @@ public class Bullet : MonoBehaviour {
 
     void Awake() {
         body = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
         destructionEffect = GetComponentInChildren<DestructionEffect>();
     }
 
     void Start() {
+        if (piercing) col.isTrigger = true;
+
         body.velocity = velocity;
         StartCoroutine(LifetimeRoutine());
     }
@@ -32,7 +37,16 @@ public class Bullet : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag(Tags.enemy))
+            other.gameObject.GetComponent<Enemy>().ReceiveDamage(damage);
         Kill();
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag(Tags.enemy))
+            other.GetComponent<Enemy>().ReceiveDamage(damage);
+        else if (other.CompareTag(Tags.scenario))
+            Kill();
     }
 
     void Kill() {

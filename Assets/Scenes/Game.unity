@@ -322,14 +322,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfdc9d5e48aed54eb3c91fc1bbf8fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgrades:
-  - {fileID: 11400000, guid: 9345267b805a817438574d538b67608c, type: 2}
-  - {fileID: 11400000, guid: ed5aa8cd0065cc849b93b8d62e479e0a, type: 2}
-  - {fileID: 11400000, guid: ff855d36ff8f6d246b6719d9e70a2e25, type: 2}
-  - {fileID: 11400000, guid: f0bd8453075b3644eb8f67ec128b4e02, type: 2}
-  - {fileID: 11400000, guid: bed729d90d5ef5f49817d6b04bed5f55, type: 2}
-  - {fileID: 11400000, guid: 12333206346b36446a2866a739944760, type: 2}
-  - {fileID: 11400000, guid: 759673f86177928449ae3959bfe73230, type: 2}
+  waveData: {fileID: 11400000, guid: 2b3b3ec12ad7a49449494fd3873c3df7, type: 2}
+  upgradeTiers:
+  - tierWave: 0
+    upgrades:
+    - {fileID: 11400000, guid: 9345267b805a817438574d538b67608c, type: 2}
+    - {fileID: 11400000, guid: ed5aa8cd0065cc849b93b8d62e479e0a, type: 2}
+    - {fileID: 11400000, guid: ff855d36ff8f6d246b6719d9e70a2e25, type: 2}
+  - tierWave: 2
+    upgrades:
+    - {fileID: 11400000, guid: f0bd8453075b3644eb8f67ec128b4e02, type: 2}
+    - {fileID: 11400000, guid: bed729d90d5ef5f49817d6b04bed5f55, type: 2}
+  - tierWave: 5
+    upgrades:
+    - {fileID: 11400000, guid: 759673f86177928449ae3959bfe73230, type: 2}
+    - {fileID: 11400000, guid: 12333206346b36446a2866a739944760, type: 2}
+    - {fileID: 11400000, guid: bf35e004c746ae74ab3153af3317bce8, type: 2}
 --- !u!225 &160027864
 CanvasGroup:
   m_ObjectHideFlags: 0

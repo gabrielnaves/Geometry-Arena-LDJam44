@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class UpgradeMenu : MonoBehaviour {
 
-    public List<Upgrade> upgrades;
+    public WaveData waveData;
+    public List<UpgradeTier> upgradeTiers;
 
     CanvasGroup canvasGroup;
     CanvasGroupFader fader;
     List<UpgradeButton> buttons;
+    List<Upgrade> upgrades = new List<Upgrade>();
     bool open;
     bool closed;
 
@@ -22,6 +24,17 @@ public class UpgradeMenu : MonoBehaviour {
         canvasGroup.blocksRaycasts = false;
         open = false;
         closed = true;
+        UpdateUpgradeList();
+    }
+
+    void UpdateUpgradeList() {
+        foreach (var tier in upgradeTiers) {
+            if (tier.tierWave == waveData.currentWave)
+                foreach (var upgrade in tier.upgrades)
+                    upgrades.Add(upgrade);
+        }
+        upgrades.RemoveAll((upgrade) => upgrade.IsExpired());
+        upgrades.Shuffle();
     }
 
     void Update() {
@@ -35,8 +48,7 @@ public class UpgradeMenu : MonoBehaviour {
 
     public void OpenMenu() {
         canvasGroup.blocksRaycasts = true;
-        upgrades.RemoveAll((upgrade) => upgrade.IsExpired());
-        upgrades.Shuffle();
+        UpdateUpgradeList();
         while (upgrades.Count < buttons.Count) {
             Destroy(buttons[buttons.Count - 1].gameObject);
             buttons.RemoveAt(buttons.Count-1);
@@ -47,6 +59,7 @@ public class UpgradeMenu : MonoBehaviour {
         open = true;
         closed = false;
     }
+
 
     public void CloseMenu() {
         if (open)
@@ -64,4 +77,10 @@ public class UpgradeMenu : MonoBehaviour {
     public bool IsClosed() {
         return closed;
     }
+}
+
+[System.Serializable]
+public class UpgradeTier {
+    public int tierWave;
+    public Upgrade[] upgrades;
 }

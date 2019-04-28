@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2424517486433680695}
   m_Layer: 12
   m_Name: LeftWall
-  m_TagString: Untagged
+  m_TagString: Scenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 5686131724873708943}
   m_Layer: 12
   m_Name: UpperWall
-  m_TagString: Untagged
+  m_TagString: Scenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 3085780167379456800}
   m_Layer: 12
   m_Name: LowerWall
-  m_TagString: Untagged
+  m_TagString: Scenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 2491151551547520011}
   m_Layer: 12
   m_Name: RightWall
-  m_TagString: Untagged
+  m_TagString: Scenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 4594243159646965269}
   m_Layer: 12
   m_Name: Arena
-  m_TagString: Untagged
+  m_TagString: Scenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

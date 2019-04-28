@@ -43,5 +43,6 @@ public class PlayerShootingControls : MonoBehaviour {
         Vector2 velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * data.bulletSpeed;
         bullet.SetVelocity(velocity);
         bullet.damage = data.damage;
+        bullet.piercing = data.piercingBullets;
     }
 }
