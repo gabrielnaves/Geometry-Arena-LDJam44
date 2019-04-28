@@ -7,6 +7,8 @@ public class PlayerData : ScriptableObject {
     public int startingHealth;
     [ViewOnly] public int health;
     [ViewOnly] public bool dead;
+    public float damagedTime;
+    public float blinkTime;
     #endregion
 
     #region Movement
@@ -28,6 +30,14 @@ public class PlayerData : ScriptableObject {
     public void ReceiveHealth(int value) {
         if (!dead)
             health += value;
+    }
+
+    public void ReceiveDamage(int value) {
+        health -= value;
+        if (health <= 0) {
+            health = 0;
+            dead = true;
+        }
     }
 
     public void Setup() {

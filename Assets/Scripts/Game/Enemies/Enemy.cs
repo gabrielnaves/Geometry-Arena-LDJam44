@@ -49,8 +49,14 @@ public class Enemy : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag(Tags.bullet))
+        if (collision.gameObject.CompareTag(Tags.player))
+            DamagePlayer(collision.gameObject.GetComponent<Player>());
+        else if (collision.gameObject.CompareTag(Tags.bullet))
             Kill();
+    }
+
+    void DamagePlayer(Player player) {
+        player.ReceiveDamage(transform, data.damageDealt);
     }
 
     void Kill() {

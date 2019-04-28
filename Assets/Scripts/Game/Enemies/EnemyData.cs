@@ -7,6 +7,7 @@ public class EnemyData : ScriptableObject {
     [ViewOnly] public float pursuitForce;
     public float startingMaxSpeed;
     [ViewOnly] public float maxSpeed;
+    public int damageDealt;
 
     public void Setup() {
         pursuitForce = startingPursuitForce;
