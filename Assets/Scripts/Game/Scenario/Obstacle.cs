@@ -13,7 +13,7 @@ public class Obstacle : MonoBehaviour {
     }
 
     void OnDestroy() {
-        obstacleManager.AddObstacle(this);
+        obstacleManager.RemoveObstacle(this);
     }
 
     public void ApplyRepellingForceTo(Rigidbody2D body) {

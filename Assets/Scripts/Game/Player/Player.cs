@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 
     PlayerMovement playerMovement;
     PlayerShootingControls shootControls;
+    PlayerLaserSight laserSight;
+    DestructionEffect destructionEffect;
     Rigidbody2D body;
     LineRenderer line;
     float damagedTimer;
@@ -20,6 +22,8 @@ public class Player : MonoBehaviour {
     void Awake() {
         playerMovement = GetComponent<PlayerMovement>();
         shootControls = GetComponent<PlayerShootingControls>();
+        laserSight = GetComponentInChildren<PlayerLaserSight>();
+        destructionEffect = GetComponentInChildren<DestructionEffect>();
         body = GetComponent<Rigidbody2D>();
         line = GetComponent<LineRenderer>();
         playerManager.AddPlayer(this);
@@ -36,11 +40,26 @@ public class Player : MonoBehaviour {
             NumbersUtility.instance.CreateNumberAt(transform.position + Vector3.up, damage);
             if (!data.dead)
                 body.velocity = (transform.position - source.position).normalized * data.maxSpeed;
+            else
+                StartCoroutine(DeathRoutine());
         }
     }
 
+    IEnumerator DeathRoutine() {
+        playerMovement.enabled = false;
+        shootControls.enabled = false;
+        laserSight.gameObject.SetActive(false);
+        line.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        body.velocity = Vector2.zero;
+        body.angularVelocity = 0;
+        destructionEffect.Play();
+        yield return new WaitForSeconds(destructionEffect.duration);
+        Destroy(gameObject);
+    }
+
     void Update() {
-        if (damaged) {
+        if (damaged && !data.dead) {
             damagedTimer += Time.deltaTime;
             blinkTimer += Time.deltaTime;
             if (blinkTimer > data.blinkTime) {

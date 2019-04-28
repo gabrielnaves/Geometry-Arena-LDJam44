@@ -685,6 +685,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 11400000, guid: 2565b986898b8b240834909a2c07d280, type: 2}
+  playerManager: {fileID: 11400000, guid: c6aeba9670619304f97d30e3f0211ddf, type: 2}
+  gameEndDelay: 0
 --- !u!1 &316666981
 GameObject:
   m_ObjectHideFlags: 0
