@@ -8,8 +8,13 @@ public class PlayerShootingControls : MonoBehaviour {
     public InputData input;
     public Transform bulletPos;
 
+    Rigidbody2D body;
     bool cooldown;
     float cooldownTimer;
+
+    void Awake() {
+        body = GetComponent<Rigidbody2D>();
+    }
 
     void Update() {
         if (cooldown) {
@@ -27,10 +32,16 @@ public class PlayerShootingControls : MonoBehaviour {
     void Shoot() {
         var bulletObj = Instantiate(data.bullet, bulletPos.position, Quaternion.identity);
         var bullet = bulletObj.GetComponent<Bullet>();
-        float maxSpreadAngle = Mathf.Clamp(data.fireRate * data.spread, 0, 30);
-        float spreadAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle) * Mathf.Deg2Rad;
-        float angle = Mathf.Atan2(transform.right.y, transform.right.x) + spreadAngle;
-        bullet.SetVelocity(new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * data.bulletSpeed);
+        float angle = Mathf.Atan2(transform.right.y, transform.right.x);
+
+        if (!data.laserSight) {
+            float maxSpreadAngle = Mathf.Clamp(data.fireRate * data.spread, 0, 30);
+            float spreadAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle) * Mathf.Deg2Rad;
+            angle += spreadAngle;
+        }
+
+        Vector2 velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * data.bulletSpeed;
+        bullet.SetVelocity(velocity);
         bullet.damage = data.damage;
     }
 }

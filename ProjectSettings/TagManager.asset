@@ -42,6 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LaserSight
+    uniqueID: 2039278587
+    locked: 0
+  - name: Player
+    uniqueID: 963350275
+    locked: 0
   - name: Numbers
     uniqueID: 166028957
     locked: 0

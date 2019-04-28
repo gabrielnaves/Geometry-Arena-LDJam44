@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1d3e07cd7502c43aa411a30a2d5819, type: 3}
+  m_Name: LaserSightUpgrade
+  m_EditorClassIdentifier: 
+  title: <b>Laser Sight</b>
+  description: Fire accurately
+  startingCost: 20
+  costIncreasePerUse: 0
+  limited: 1
+  maxUses: 1
+  playerData: {fileID: 11400000, guid: ac8e8018d955e88448597258dbde8b53, type: 2}

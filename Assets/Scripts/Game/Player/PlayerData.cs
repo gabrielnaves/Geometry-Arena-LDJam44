@@ -31,6 +31,10 @@ public class PlayerData : ScriptableObject {
     [ViewOnly] public int damage;
     #endregion
 
+    #region Other upgrades
+    public bool laserSight;
+    #endregion
+
     public void ReceiveHealth(int value) {
         if (!dead)
             health += value;
@@ -52,6 +56,7 @@ public class PlayerData : ScriptableObject {
         bullet = startingProjectile;
         bulletSpeed = startingBulletSpeed;
         damage = startingDamage;
+        laserSight = false;
     }
 
     public void Reset() {
@@ -63,5 +68,6 @@ public class PlayerData : ScriptableObject {
         bullet = null;
         bulletSpeed = 0;
         damage = 0;
+        laserSight = false;
     }
 }
