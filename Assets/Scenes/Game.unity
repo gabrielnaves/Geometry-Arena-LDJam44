@@ -329,6 +329,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0bd8453075b3644eb8f67ec128b4e02, type: 2}
   - {fileID: 11400000, guid: bed729d90d5ef5f49817d6b04bed5f55, type: 2}
   - {fileID: 11400000, guid: 12333206346b36446a2866a739944760, type: 2}
+  - {fileID: 11400000, guid: 759673f86177928449ae3959bfe73230, type: 2}
 --- !u!225 &160027864
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -686,7 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 11400000, guid: 2565b986898b8b240834909a2c07d280, type: 2}
   playerManager: {fileID: 11400000, guid: c6aeba9670619304f97d30e3f0211ddf, type: 2}
-  gameEndDelay: 0
+  gameEndDelay: 2
 --- !u!1 &316666981
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,6 +33,7 @@ public class PlayerData : ScriptableObject {
 
     #region Other upgrades
     public bool laserSight;
+    public bool bigBullets;
     #endregion
 
     public void ReceiveHealth(int value) {
@@ -57,6 +58,7 @@ public class PlayerData : ScriptableObject {
         bulletSpeed = startingBulletSpeed;
         damage = startingDamage;
         laserSight = false;
+        bigBullets = false;
     }
 
     public void Reset() {
@@ -69,5 +71,6 @@ public class PlayerData : ScriptableObject {
         bulletSpeed = 0;
         damage = 0;
         laserSight = false;
+        bigBullets = false;
     }
 }

@@ -33,3 +33,4 @@ MonoBehaviour:
   startingDamage: 1
   damage: 0
   laserSight: 0
+  bigBullets: 0
