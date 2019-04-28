@@ -12,12 +12,14 @@ public class GameManager : MonoBehaviour {
     WaveManager waveManager;
     bool gameStarted;
     bool gameEnded;
+    Utility.SimplePause pause;
 
     void Awake() {
         waveManager = GetComponent<WaveManager>();
     }
 
     void Start() {
+        pause = Utility.SimplePause.instance;
         StartCoroutine(WaitForGameStart());
     }
 
@@ -30,11 +32,13 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        if (gameStarted) {
+        if (gameStarted && !gameEnded) {
             if (ShouldEndGame())
                 StartCoroutine(GameEndRoutine());
             if (ShouldShowIntermissionMenu())
                 StartCoroutine(ShowIntermissionMenuRoutine());
+            if (Input.GetKeyDown(KeyCode.P))
+                TogglePause();
         }
     }
 
@@ -60,5 +64,10 @@ public class GameManager : MonoBehaviour {
         IntermissionMenus.instance.ShowIntermissionMenu();
         yield return new WaitUntil(() => !IntermissionMenus.instance.IsOpen());
         waveManager.StartNextWave();
+    }
+
+    void TogglePause() {
+        pause.TogglePause();
+        PausedScreen.instance.gameObject.SetActive(pause.paused);
     }
 }

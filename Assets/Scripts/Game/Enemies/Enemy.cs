@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         GetComponent<LineRenderer>().enabled = false;
         destructionEffect.Play();
-        int maxLifeOrbs = waveData.currentWave / 3 + 2;
+        int maxLifeOrbs = waveData.currentWave / 4 + 2;
         LifeOrbUtility.instance?.CreateOrbsAt(transform.position, Random.Range(1, maxLifeOrbs));
         yield return new WaitForSeconds(destructionEffect.duration);
         Destroy(gameObject);
