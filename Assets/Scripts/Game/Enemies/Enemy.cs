@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
     public PlayerManager playerManager;
     public ObstacleManager obstacleManager;
 
+    [ViewOnly] public int health;
     [ViewOnly] public bool dead;
 
     Rigidbody2D body;
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour {
         body = GetComponentInChildren<Rigidbody2D>();
         destructionEffect = GetComponentInChildren<DestructionEffect>();
         manager.AddEnemy(this);
+        health = data.health;
     }
 
     void Start() {
@@ -52,11 +54,17 @@ public class Enemy : MonoBehaviour {
         if (collision.gameObject.CompareTag(Tags.player))
             DamagePlayer(collision.gameObject.GetComponent<Player>());
         else if (collision.gameObject.CompareTag(Tags.bullet))
-            Kill();
+            ReceiveDamage(collision.gameObject.GetComponent<Bullet>().damage);
     }
 
     void DamagePlayer(Player player) {
         player.ReceiveDamage(transform, data.damageDealt);
+    }
+
+    void ReceiveDamage(int amount) {
+        health -= amount;
+        if (health <= 0)
+            Kill();
     }
 
     void Kill() {

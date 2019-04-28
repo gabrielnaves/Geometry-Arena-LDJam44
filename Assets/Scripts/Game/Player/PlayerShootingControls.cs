@@ -25,7 +25,9 @@ public class PlayerShootingControls : MonoBehaviour {
     }
 
     void Shoot() {
-        var bullet = Instantiate(data.bullet, bulletPos.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().SetVelocity(transform.right * data.bulletSpeed);
+        var bulletObj = Instantiate(data.bullet, bulletPos.position, Quaternion.identity);
+        var bullet = bulletObj.GetComponent<Bullet>();
+        bullet.SetVelocity(transform.right * data.bulletSpeed);
+        bullet.damage = 1;
     }
 }

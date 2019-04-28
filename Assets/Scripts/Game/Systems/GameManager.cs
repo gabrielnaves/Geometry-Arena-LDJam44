@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        if (WaveEnded() && !UpgradeMenu.instance.IsOpen())
+        if (WaveEnded() && !IntermissionMenus.instance.IsOpen())
             StartCoroutine(ShowUpgradeMenuRoutine());
     }
 
@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator ShowUpgradeMenuRoutine() {
-        UpgradeMenu.instance.OpenMenu();
-        yield return new WaitUntil(() => !UpgradeMenu.instance.IsOpen());
+        IntermissionMenus.instance.ShowIntermissionMenu();
+        yield return new WaitUntil(() => !IntermissionMenus.instance.IsOpen());
         waveManager.StartNextWave();
     }
 }

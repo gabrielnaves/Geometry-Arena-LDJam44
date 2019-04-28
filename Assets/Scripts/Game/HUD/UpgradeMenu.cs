@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UpgradeMenu : MonoBehaviour {
 
-    static public UpgradeMenu instance { get; private set; }
-
     public List<Upgrade> upgrades;
 
     CanvasGroup canvasGroup;
@@ -13,7 +11,6 @@ public class UpgradeMenu : MonoBehaviour {
     List<UpgradeButton> buttons;
 
     void Awake() {
-        instance = (UpgradeMenu)Utility.Singleton.Setup(this, instance);
         buttons = new List<UpgradeButton>(GetComponentsInChildren<UpgradeButton>());
     }
 
@@ -32,7 +29,6 @@ public class UpgradeMenu : MonoBehaviour {
     }
 
     public void OpenMenu() {
-        InputManager.instance.enabled = false;
         canvasGroup.blocksRaycasts = true;
         upgrades.RemoveAll((upgrade) => upgrade.IsExpired());
         upgrades.Shuffle();
@@ -47,7 +43,6 @@ public class UpgradeMenu : MonoBehaviour {
     }
 
     public void CloseMenu() {
-        InputManager.instance.enabled = true;
         canvasGroup.blocksRaycasts = false;
         fader.RequestFadeOut();
         enabled = false;
