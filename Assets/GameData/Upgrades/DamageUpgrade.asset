@@ -9,12 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d765ee1a47d6eac46b760e6a5044d5ee, type: 3}
-  m_Name: TougherEnemies
+  m_Script: {fileID: 11500000, guid: e8f364f1306722e4786a03da74bdaf75, type: 3}
+  m_Name: DamageUpgrade
   m_EditorClassIdentifier: 
-  title: Tougher enemies!
+  title: <b>Bullet Damage</b> Upgrade
+  description: This one packs a punch.
+  startingCost: 6
+  costIncreasePerUse: 4
   limited: 0
   maxUses: 0
-  data:
-  - {fileID: 11400000, guid: 7b344dadaf9ea57419e7aa418b1263c5, type: 2}
-  increaseValue: 2
+  playerData: {fileID: 11400000, guid: ac8e8018d955e88448597258dbde8b53, type: 2}
+  increaseValue: 1

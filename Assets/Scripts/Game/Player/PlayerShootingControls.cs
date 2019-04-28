@@ -27,7 +27,10 @@ public class PlayerShootingControls : MonoBehaviour {
     void Shoot() {
         var bulletObj = Instantiate(data.bullet, bulletPos.position, Quaternion.identity);
         var bullet = bulletObj.GetComponent<Bullet>();
-        bullet.SetVelocity(transform.right * data.bulletSpeed);
-        bullet.damage = 1;
+        float maxSpreadAngle = Mathf.Clamp(data.fireRate * data.spread, 0, 30);
+        float spreadAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle) * Mathf.Deg2Rad;
+        float angle = Mathf.Atan2(transform.right.y, transform.right.x) + spreadAngle;
+        bullet.SetVelocity(new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * data.bulletSpeed);
+        bullet.damage = data.damage;
     }
 }

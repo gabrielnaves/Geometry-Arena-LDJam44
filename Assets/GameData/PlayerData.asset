@@ -23,8 +23,12 @@ MonoBehaviour:
   maxSpeed: 0
   startingFireRate: 1
   fireRate: 0
+  spread: 5
+  knockback: 0
   startingProjectile: {fileID: 552135482398843943, guid: 3130c8ceb98a2e84ebb9d0dab0932f9f,
     type: 3}
   bullet: {fileID: 0}
   startingBulletSpeed: 10
   bulletSpeed: 0
+  startingDamage: 1
+  damage: 0

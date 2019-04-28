@@ -21,10 +21,14 @@ public class PlayerData : ScriptableObject {
     #region Shooting
     public float startingFireRate;
     [ViewOnly] public float fireRate;
+    public float spread;
+    public float knockback;
     public GameObject startingProjectile;
     [ViewOnly] public GameObject bullet;
     public float startingBulletSpeed;
     [ViewOnly] public float bulletSpeed;
+    public int startingDamage = 1;
+    [ViewOnly] public int damage;
     #endregion
 
     public void ReceiveHealth(int value) {
@@ -47,6 +51,7 @@ public class PlayerData : ScriptableObject {
         fireRate = startingFireRate;
         bullet = startingProjectile;
         bulletSpeed = startingBulletSpeed;
+        damage = startingDamage;
     }
 
     public void Reset() {
@@ -57,5 +62,6 @@ public class PlayerData : ScriptableObject {
         fireRate = 0;
         bullet = null;
         bulletSpeed = 0;
+        damage = 0;
     }
 }
