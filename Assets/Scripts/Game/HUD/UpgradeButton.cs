@@ -20,17 +20,30 @@ public class UpgradeButton : MonoBehaviour {
         button = GetComponent<Button>();
     }
 
+    void Start() {
+        ToggleButtonFlags();
+    }
+
+    void Update() {
+        ToggleButtonFlags();
+    }
+
     public void Setup(Upgrade upgrade) {
         this.upgrade = upgrade;
         title.text = upgrade.title;
         description.text = upgrade.description;
-        cost.text = string.Format("costs <u>{0} health</u>", upgrade.cost);
-        button.interactable = playerData.health > upgrade.cost;
+        cost.text = string.Format("costs <u>{0} health</u>", upgrade.GetCost());
+        ToggleButtonFlags();
     }
 
     public void ApplyUpgrade() {
         button.interactable = false;
-        playerData.health -= upgrade.cost;
-        upgrade.ApplyUpgrade();
+        enabled = false;
+        upgrade.UseUpgrade();
+    }
+
+    void ToggleButtonFlags() {
+        button.interactable = upgrade != null && playerData.health > upgrade.GetCost();
+        enabled = button.interactable;
     }
 }

@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56208869b478bcc469e24266cf627c3c, type: 3}
   m_Name: MaxSpeedUpgrade
   m_EditorClassIdentifier: 
-  title: Max Speed Upgrade
+  title: <b>Max Speed</b> Upgrade
   description: Move faster through the arena!
-  cost: 3
+  startingCost: 3
+  costIncreasePerUse: 5
+  limited: 1
+  maxUses: 3
   playerData: {fileID: 11400000, guid: ac8e8018d955e88448597258dbde8b53, type: 2}
   increaseValue: 2.5

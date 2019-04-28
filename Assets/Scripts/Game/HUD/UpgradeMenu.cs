@@ -6,15 +6,15 @@ public class UpgradeMenu : MonoBehaviour {
 
     static public UpgradeMenu instance { get; private set; }
 
-    public Upgrade[] upgrades;
+    public List<Upgrade> upgrades;
 
     CanvasGroup canvasGroup;
     CanvasGroupFader fader;
-    UpgradeButton[] buttons;
+    List<UpgradeButton> buttons;
 
     void Awake() {
         instance = (UpgradeMenu)Utility.Singleton.Setup(this, instance);
-        buttons = GetComponentsInChildren<UpgradeButton>();
+        buttons = new List<UpgradeButton>(GetComponentsInChildren<UpgradeButton>());
     }
 
     void Start() {
@@ -34,8 +34,13 @@ public class UpgradeMenu : MonoBehaviour {
     public void OpenMenu() {
         InputManager.instance.enabled = false;
         canvasGroup.blocksRaycasts = true;
+        upgrades.RemoveAll((upgrade) => upgrade.IsExpired());
         upgrades.Shuffle();
-        for (int i = 0; i < buttons.Length; ++i)
+        while (upgrades.Count < buttons.Count) {
+            Destroy(buttons[buttons.Count - 1].gameObject);
+            buttons.RemoveAt(buttons.Count-1);
+        }
+        for (int i = 0; i < buttons.Count; ++i)
             buttons[i].Setup(upgrades[i]);
         fader.RequestFadeIn();
         enabled = true;

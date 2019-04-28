@@ -5,10 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Game/Upgrades/BulletSpeedUpgrade")]
 public class BulletSpeedUpgrade : Upgrade {
 
-    public PlayerData playerData;
     public float increaseValue;
 
-    override public void ApplyUpgrade() {
+    override protected void ApplyUpgrade() {
         playerData.bulletSpeed += increaseValue;
     }
 }

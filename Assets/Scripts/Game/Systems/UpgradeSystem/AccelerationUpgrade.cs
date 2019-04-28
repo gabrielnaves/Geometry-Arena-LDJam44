@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Game/Upgrades/MaxSpeedUpgrade")]
-public class MaxSpeedUpgrade : Upgrade {
+[CreateAssetMenu(menuName="Game/Upgrades/AccelerationUpgrade")]
+public class AccelerationUpgrade : Upgrade {
 
     public float increaseValue;
 
     override protected void ApplyUpgrade() {
-        playerData.maxSpeed += increaseValue;
+        playerData.acceleration += increaseValue;
     }
 }
