@@ -62,6 +62,7 @@ public class Enemy : MonoBehaviour {
     }
 
     void ReceiveDamage(int amount) {
+        NumbersUtility.instance.CreateNumberAt(transform.position + Vector3.up, amount);
         health -= amount;
         if (health <= 0)
             Kill();

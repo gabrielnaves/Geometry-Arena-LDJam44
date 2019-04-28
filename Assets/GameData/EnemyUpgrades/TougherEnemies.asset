@@ -17,4 +17,4 @@ MonoBehaviour:
   maxUses: 0
   data:
   - {fileID: 11400000, guid: 7b344dadaf9ea57419e7aa418b1263c5, type: 2}
-  increaseValue: 2
+  increaseValue: 1

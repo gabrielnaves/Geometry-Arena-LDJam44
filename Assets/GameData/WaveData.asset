@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: WaveData
   m_EditorClassIdentifier: 
   currentWave: 0
+  spawnDelay: 0.25
   enemies:
   - prefab: {fileID: 1924337239024626666, guid: 23c1066fbd4680242a18397c7143972d,
       type: 3}
     minWave: 0
     startingEnemyAmount: 6
     amountIncreaseRange:
-      min: 6
-      max: 10
+      min: 4
+      max: 8

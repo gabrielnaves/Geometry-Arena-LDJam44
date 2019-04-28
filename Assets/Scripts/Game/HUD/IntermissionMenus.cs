@@ -37,7 +37,7 @@ public class IntermissionMenus : MonoBehaviour {
         fader.RequestFadeIn();
         // Player upgrades
         upgradeMenu.OpenMenu();
-        yield return new WaitUntil(() => !upgradeMenu.IsOpen());
+        yield return new WaitUntil(() => upgradeMenu.IsClosed());
         // Enemy upgrades
         enemyUpgradeMenu.ShowEnemyUpgrade();
         yield return null;

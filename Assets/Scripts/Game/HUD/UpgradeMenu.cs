@@ -9,6 +9,8 @@ public class UpgradeMenu : MonoBehaviour {
     CanvasGroup canvasGroup;
     CanvasGroupFader fader;
     List<UpgradeButton> buttons;
+    bool open;
+    bool closed;
 
     void Awake() {
         buttons = new List<UpgradeButton>(GetComponentsInChildren<UpgradeButton>());
@@ -18,14 +20,17 @@ public class UpgradeMenu : MonoBehaviour {
         canvasGroup = GetComponent<CanvasGroup>();
         fader = GetComponent<CanvasGroupFader>();
         canvasGroup.blocksRaycasts = false;
-        enabled = false;
+        open = false;
+        closed = true;
     }
 
     void Update() {
-        bool shouldClose = true;
-        foreach (var button in buttons)
-            shouldClose = shouldClose && !button.interactable;
-        if (shouldClose) CloseMenu();
+        if (open) {
+            bool shouldClose = true;
+            foreach (var button in buttons)
+                shouldClose = shouldClose && !button.interactable;
+            if (shouldClose) CloseMenu();
+        }
     }
 
     public void OpenMenu() {
@@ -39,16 +44,24 @@ public class UpgradeMenu : MonoBehaviour {
         for (int i = 0; i < buttons.Count; ++i)
             buttons[i].Setup(upgrades[i]);
         fader.RequestFadeIn();
-        enabled = true;
+        open = true;
+        closed = false;
     }
 
     public void CloseMenu() {
-        canvasGroup.blocksRaycasts = false;
-        fader.RequestFadeOut();
-        enabled = false;
+        if (open)
+            StartCoroutine(CloseRoutine());
     }
 
-    public bool IsOpen() {
-        return enabled;
+    IEnumerator CloseRoutine() {
+        open = false;
+        yield return new WaitUntil(() => fader.IsIdle());
+        canvasGroup.blocksRaycasts = false;
+        fader.RequestFadeOut();
+        closed = true;
+    }
+
+    public bool IsClosed() {
+        return closed;
     }
 }

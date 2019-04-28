@@ -17,5 +17,5 @@ MonoBehaviour:
   maxUses: 0
   data:
   - {fileID: 11400000, guid: 7b344dadaf9ea57419e7aa418b1263c5, type: 2}
-  maxSpeedIncrease: 1.5
+  maxSpeedIncrease: 1
   pursuitForceIncrease: 4

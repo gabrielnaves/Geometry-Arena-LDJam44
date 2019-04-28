@@ -33,6 +33,7 @@ public class Player : MonoBehaviour {
         if (!damaged && !data.dead) {
             damaged = true;
             data.ReceiveDamage(damage);
+            NumbersUtility.instance.CreateNumberAt(transform.position + Vector3.up, damage);
             if (!data.dead)
                 body.velocity = (transform.position - source.position).normalized * data.maxSpeed;
         }
