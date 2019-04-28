@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName="Game/Systems/PlayerManager")]
@@ -24,5 +25,19 @@ public class PlayerManager : ScriptableObject {
         if (players.Count == 0)
             return null;
         return players[0];
+    }
+
+    public Tuple<Player, float> GetNearestPlayerInfo(Vector3 position) {
+        if (!HasPlayer()) return null;
+        float distance = Mathf.Infinity;
+        int index = 0;
+        for (int i = 0; i < players.Count; ++i) {
+            float dist = (players[i].position - position).sqrMagnitude;
+            if (dist < distance) {
+                distance = dist;
+                index = i;
+            }
+        }
+        return new Tuple<Player, float>(players[index], distance);
     }
 }

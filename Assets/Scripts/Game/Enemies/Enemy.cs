@@ -64,6 +64,7 @@ public class Enemy : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         GetComponent<LineRenderer>().enabled = false;
         destructionEffect.Play();
+        LifeOrbUtility.instance?.CreateOrbsAt(transform.position, 1);
         yield return new WaitForSeconds(destructionEffect.duration);
         Destroy(gameObject);
     }

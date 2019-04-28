@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     PlayerMovement playerMovement;
     PlayerShootingControls shootControls;
 
+    public Vector3 position { get { return transform.position; } }
+
     void Awake() {
         playerMovement = GetComponent<PlayerMovement>();
         shootControls = GetComponent<PlayerShootingControls>();

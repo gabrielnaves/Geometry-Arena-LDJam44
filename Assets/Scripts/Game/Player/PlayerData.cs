@@ -6,6 +6,7 @@ public class PlayerData : ScriptableObject {
     #region Health
     public int startingHealth;
     [ViewOnly] public int health;
+    [ViewOnly] public bool dead;
     #endregion
 
     #region Movement
@@ -24,6 +25,11 @@ public class PlayerData : ScriptableObject {
     [ViewOnly] public float bulletSpeed;
     #endregion
 
+    public void ReceiveHealth(int value) {
+        if (!dead)
+            health += value;
+    }
+
     public void Setup() {
         health = startingHealth;
         acceleration = startingAcceleration;
@@ -34,6 +40,7 @@ public class PlayerData : ScriptableObject {
     }
 
     public void Reset() {
+        dead = false;
         health = 0;
         acceleration = 0;
         maxSpeed = 0;
