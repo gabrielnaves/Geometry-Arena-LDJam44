@@ -14,7 +14,7 @@ public class PlayerShootingControls : MonoBehaviour {
     void Update() {
         if (cooldown) {
             cooldownTimer += Time.deltaTime;
-            if (cooldownTimer > data.shootCooldown)
+            if (cooldownTimer > 1 / data.fireRate)
                 cooldown = false;
         }
         if (!cooldown && input.action) {

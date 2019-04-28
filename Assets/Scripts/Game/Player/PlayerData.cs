@@ -3,6 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName="Game/Data/PlayerData")]
 public class PlayerData : ScriptableObject {
 
+    #region Health
+    public int startingHealth;
+    [ViewOnly] public int health;
+    #endregion
+
     #region Movement
     public float startingAcceleration;
     [ViewOnly] public float acceleration;
@@ -11,8 +16,8 @@ public class PlayerData : ScriptableObject {
     #endregion
 
     #region Shooting
-    public float startingShootCooldown;
-    [ViewOnly] public float shootCooldown;
+    public float startingFireRate;
+    [ViewOnly] public float fireRate;
     public GameObject startingProjectile;
     [ViewOnly] public GameObject bullet;
     public float startingBulletSpeed;
@@ -20,17 +25,19 @@ public class PlayerData : ScriptableObject {
     #endregion
 
     public void Setup() {
+        health = startingHealth;
         acceleration = startingAcceleration;
         maxSpeed = startingMaxSpeed;
-        shootCooldown = startingShootCooldown;
+        fireRate = startingFireRate;
         bullet = startingProjectile;
         bulletSpeed = startingBulletSpeed;
     }
 
     public void Reset() {
+        health = 0;
         acceleration = 0;
         maxSpeed = 0;
-        shootCooldown = 0;
+        fireRate = 0;
         bullet = null;
         bulletSpeed = 0;
     }

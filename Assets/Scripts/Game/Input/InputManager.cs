@@ -12,5 +12,6 @@ public class InputManager : MonoBehaviour {
         input.mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         input.action = Input.GetMouseButton(0);
         input.actionDown = Input.GetMouseButtonDown(0);
+        input.actionUp = Input.GetMouseButtonUp(0);
     }
 }
