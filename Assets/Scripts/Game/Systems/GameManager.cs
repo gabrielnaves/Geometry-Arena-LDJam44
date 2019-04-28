@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(WaveManager))]
 public class GameManager : MonoBehaviour {
@@ -11,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public float gameEndDelay;
 
     WaveManager waveManager;
+    bool gameStarted;
     bool gameEnded;
 
     void Awake() {
@@ -18,14 +18,24 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
+        StartCoroutine(WaitForGameStart());
+    }
+
+    IEnumerator WaitForGameStart() {
+        InputManager.instance.enabled = false;
+        yield return new WaitUntil(() => GameMenu.instance.IsClosed());
+        InputManager.instance.enabled = true;
+        gameStarted = true;
         waveManager.StartNextWave();
     }
 
     void Update() {
-        if (ShouldEndGame())
-            StartCoroutine(GameEndRoutine());
-        if (ShouldShowIntermissionMenu())
-            StartCoroutine(ShowIntermissionMenuRoutine());
+        if (gameStarted) {
+            if (ShouldEndGame())
+                StartCoroutine(GameEndRoutine());
+            if (ShouldShowIntermissionMenu())
+                StartCoroutine(ShowIntermissionMenuRoutine());
+        }
     }
 
     bool ShouldEndGame() {
@@ -33,9 +43,9 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator GameEndRoutine() {
-        yield return new WaitForSeconds(gameEndDelay);
         gameEnded = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        yield return new WaitForSeconds(gameEndDelay);
+        GameOverScreen.instance.ShowGameOverScreen();
     }
 
     bool ShouldShowIntermissionMenu() {

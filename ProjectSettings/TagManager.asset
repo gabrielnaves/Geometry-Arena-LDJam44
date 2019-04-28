@@ -53,9 +53,12 @@ TagManager:
   - name: Numbers
     uniqueID: 166028957
     locked: 0
-  - name: Menus
+  - name: IntermissionMenu
     uniqueID: 3215621305
     locked: 0
   - name: HUD
     uniqueID: 628786903
+    locked: 0
+  - name: GameMenu
+    uniqueID: 1232478147
     locked: 0
