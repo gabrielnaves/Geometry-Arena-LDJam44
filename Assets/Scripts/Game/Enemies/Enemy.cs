@@ -9,6 +9,9 @@ public class Enemy : MonoBehaviour {
     public PlayerManager playerManager;
     public ObstacleManager obstacleManager;
     public WaveData waveData;
+    public CameraShakeData cameraShake;
+    public float traumaOnDamage = 0.025f;
+    public float traumaOnDeath = 0.1f;
 
     [ViewOnly] public int health;
     [ViewOnly] public bool dead;
@@ -61,6 +64,7 @@ public class Enemy : MonoBehaviour {
     }
 
     public void ReceiveDamage(int amount) {
+        cameraShake.AddTrauma(traumaOnDamage);
         NumbersUtility.instance.CreateNumberAt(transform.position + Vector3.up, amount);
         health -= amount;
         if (health <= 0)
@@ -72,6 +76,9 @@ public class Enemy : MonoBehaviour {
     }
 
     IEnumerator KillRoutine() {
+        cameraShake.AddTrauma(traumaOnDeath);
+        if (cameraShake.trauma > 0.5f)
+            cameraShake.trauma = 0.5f;
         dead = true;
         body.velocity = Vector2.zero;
         body.angularVelocity = 0;

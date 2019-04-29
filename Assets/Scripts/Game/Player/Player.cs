@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
 
     public PlayerData data;
     public PlayerManager playerManager;
+    public CameraShakeData cameraShake;
+    public float traumaOnDamage;
     [ViewOnly] public bool damaged;
 
     public Vector3 position { get { return transform.position; } }
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour {
 
     public void ReceiveDamage(Transform source, int damage) {
         if (!damaged && !data.dead) {
+            cameraShake.AddTrauma(traumaOnDamage);
             damaged = true;
             data.ReceiveDamage(damage);
             NumbersUtility.instance.CreateNumberAt(transform.position + Vector3.up, damage);
@@ -46,6 +49,7 @@ public class Player : MonoBehaviour {
     }
 
     IEnumerator DeathRoutine() {
+        cameraShake.AddTrauma(1);
         playerMovement.enabled = false;
         shootControls.enabled = false;
         laserSight.gameObject.SetActive(false);
