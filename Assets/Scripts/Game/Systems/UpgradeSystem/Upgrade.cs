@@ -12,8 +12,13 @@ abstract public class Upgrade : ScriptableObject {
     public int maxUses;
     public PlayerData playerData;
 
-    [System.NonSerialized] int cost = 0;
-    [System.NonSerialized] int timesUsed = 0;
+    int cost = 0;
+    int timesUsed = 0;
+
+    public void Reset() {
+        cost = 0;
+        timesUsed = 0;
+    }
 
     public int GetCost() {
         if (cost == 0) cost = startingCost;

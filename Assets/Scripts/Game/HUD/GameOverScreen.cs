@@ -11,6 +11,8 @@ public class GameOverScreen : MonoBehaviour {
     public WaveData waveData;
     public TextMeshProUGUI finalText;
     public float delay = 1;
+    public AudioClip gameOverSound;
+    public float gameOverSoundDelay;
     public string[] waveTexts;
 
     Animator animator;
@@ -34,6 +36,7 @@ public class GameOverScreen : MonoBehaviour {
     }
 
     public void ShowGameOverScreen() {
+        SoundEffectUtility.instance.PlaySoundDelayed(gameOverSound, gameOverSoundDelay);
         enabled = true;
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;

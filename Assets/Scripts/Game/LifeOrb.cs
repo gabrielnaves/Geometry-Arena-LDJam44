@@ -9,6 +9,8 @@ public class LifeOrb : MonoBehaviour {
     public float collectionTime;
     public PlayerManager playerManager;
     public PlayerData playerData;
+    public AudioClip soundEffect;
+    public float soundVolume = 0.8f;
 
     bool collected;
 
@@ -42,6 +44,7 @@ public class LifeOrb : MonoBehaviour {
             transform.position = Vector3.Lerp(startingPos, player.position, timer / collectionTime);
         }
         playerData.ReceiveHealth(1);
+        SoundEffectUtility.instance?.PlaySound(soundEffect, soundVolume);
         Destroy(gameObject);
     }
 

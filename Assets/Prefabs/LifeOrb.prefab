@@ -49,6 +49,7 @@ MonoBehaviour:
   collectionTime: 0.75
   playerManager: {fileID: 11400000, guid: c6aeba9670619304f97d30e3f0211ddf, type: 2}
   playerData: {fileID: 11400000, guid: ac8e8018d955e88448597258dbde8b53, type: 2}
+  soundEffect: {fileID: 8300000, guid: 34a53addc38edf843a9988bd8e511b1d, type: 3}
 --- !u!120 &6450228607506238260
 LineRenderer:
   m_ObjectHideFlags: 0

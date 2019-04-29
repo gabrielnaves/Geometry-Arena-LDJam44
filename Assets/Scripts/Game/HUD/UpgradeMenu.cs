@@ -16,6 +16,16 @@ public class UpgradeMenu : MonoBehaviour {
 
     void Awake() {
         buttons = new List<UpgradeButton>(GetComponentsInChildren<UpgradeButton>());
+        ResetUpgrades();
+    }
+
+    void OnDestroy() {
+        ResetUpgrades();
+    }
+
+    void ResetUpgrades() {
+        foreach (var tier in upgradeTiers)
+            tier.Reset();
     }
 
     void Start() {
@@ -83,4 +93,9 @@ public class UpgradeMenu : MonoBehaviour {
 public class UpgradeTier {
     public int tierWave;
     public Upgrade[] upgrades;
+
+    public void Reset() {
+        foreach (var upgrade in upgrades)
+            upgrade.Reset();
+    }
 }
