@@ -14,14 +14,15 @@ public class ParticleSystemUtility : MonoBehaviour {
         pooler = GetComponent<ObjectPooler>();
     }
 
-    public void ExplosionEffect(Vector3 position, MinMax velocityRange, int particleAmount, float lifetime) {
+    public void ExplosionEffect(Vector3 position, MinMax velocityRange, int particleAmount, float lifetime, float size, Gradient gradient) {
         LineRendererParticle[] particles = new LineRendererParticle[particleAmount];
         for (int i = 0; i < particleAmount; ++i) {
             var particle = pooler.GetObject().GetComponent<LineRendererParticle>();
             particle.Activate();
+            particle.size = size;
             particle.position = position;
-            particle.velocity = Random.insideUnitCircle * velocityRange.Random();
-            particle.color = Random.ColorHSV(0, 1, 1, 1, 1, 1);
+            particle.velocity = Random.insideUnitCircle.normalized * velocityRange.Random();
+            particle.color = gradient.Evaluate(Random.value);
             particles[i] = particle;
         }
         StartCoroutine(UpdateParticles(particles, lifetime));

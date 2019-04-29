@@ -15,7 +15,7 @@ MonoBehaviour:
   startingHealth: 10
   health: 0
   dead: 0
-  damagedTime: 1.5
+  damagedTime: 1
   blinkTime: 0.1
   startingAcceleration: 20
   acceleration: 0

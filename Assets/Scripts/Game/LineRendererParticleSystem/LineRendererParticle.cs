@@ -18,6 +18,15 @@ public class LineRendererParticle : MonoBehaviour {
         }
     }
 
+    public float size {
+        get {
+            return transform.localScale.x;
+        }
+        set {
+            transform.localScale = new Vector3(value, value, value);
+        }
+    }
+
     public Vector3 position {
         get {
             return transform.position;
