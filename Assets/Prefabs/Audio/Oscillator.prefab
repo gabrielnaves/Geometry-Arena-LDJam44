@@ -47,6 +47,30 @@ MonoBehaviour:
   waveType: 0
   frequency: 440
   volume: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -3.6037264
+      outSlope: -3.6037264
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0
+      outWeight: 0.4632955
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -3.6156101
+      outSlope: -3.6156101
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.46934444
+      outWeight: 0
+    m_PreInfinity: 1
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &7333770717858833611
 AudioSource:
   m_ObjectHideFlags: 0

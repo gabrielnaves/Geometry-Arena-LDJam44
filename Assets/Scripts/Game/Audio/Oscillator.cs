@@ -6,11 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Oscillator : MonoBehaviour {
 
-    public enum WaveType { sine, square, triangle, sawtooth }
+    public enum WaveType { sine, square, triangle, sawtooth, curve }
 
     public WaveType waveType;
     public double frequency = 440.0;
     public float volume;
+    public AnimationCurve curve;
 
     double increment;
     double phase;
@@ -28,6 +29,7 @@ public class Oscillator : MonoBehaviour {
         waveFunction.Add(WaveType.square, SquareWave);
         waveFunction.Add(WaveType.triangle, TriangleWave);
         waveFunction.Add(WaveType.sawtooth, SawtoothWave);
+        waveFunction.Add(WaveType.curve, AnimationCurveWave);
     }
 
     void Update() {
@@ -64,6 +66,10 @@ public class Oscillator : MonoBehaviour {
     }
 
     float SawtoothWave() {
-        return (float)(gain * phase / pi_twice);
+        return (float)(gain * (phase / pi_twice - 1));
+    }
+
+    float AnimationCurveWave() {
+        return (float)(gain * curve.Evaluate((float)(phase / pi_twice)));
     }
 }
