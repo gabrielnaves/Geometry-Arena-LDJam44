@@ -6637,7 +6637,7 @@ MonoBehaviour:
   - 'Oof! You''re very close to reaching the high-tier upgrades! '
   - You got to the sixth wave! Great job! Can you get even farther?
   - Seventh wave! Woo! Did you like the game? How about leaving a comment?
-  - Wow, you're good at this! Tell everyone about this in the comments below!
+  - Wow, you're good at this! Tell everyone about it in the comments below!
 --- !u!225 &1833304440
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -118,7 +118,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 963350275
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Positions:
   - {x: 1.2, y: 0, z: 0}
@@ -339,7 +339,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2039278587
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -443,10 +443,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity:
-    min: 10
-    max: 10
-  particles: 20
-  lifetime: 0.5
+    min: 5
+    max: 50
+  particles: 1000
+  lifetime: 2
   size: 0.5
   gradient:
     serializedVersion: 2
