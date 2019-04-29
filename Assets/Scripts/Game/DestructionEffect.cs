@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class DestructionEffect : MonoBehaviour {
 
-    ParticleSystem effect;
+    public MinMax velocity;
+    public int particles;
+    public float lifetime;
+    public float size;
 
-    public float duration { get { return effect.main.startLifetime.constant; } }
-
-    void Awake() {
-        effect = GetComponent<ParticleSystem>();
-        effect.Stop();
-    }
+    public float duration { get { return lifetime; } }
 
     public void Play() {
-        effect.Play();
+        ParticleSystemUtility.instance.ExplosionEffect(transform.position, velocity, particles, lifetime);
     }
 }
