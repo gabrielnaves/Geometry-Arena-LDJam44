@@ -55,6 +55,14 @@ MonoBehaviour:
   cameraShake: {fileID: 11400000, guid: 09010b892e832084caf230e571b2781b, type: 2}
   traumaOnDamage: 0.025
   traumaOnDeath: 0.2
+  deathSounds:
+  - {fileID: 8300000, guid: 2c6804af2936e1c44aa1367e2e38066c, type: 3}
+  - {fileID: 8300000, guid: 5e9a185a01bfd6449ae6eec07ed40982, type: 3}
+  - {fileID: 8300000, guid: 35256606a627478408b34998a23ec901, type: 3}
+  - {fileID: 8300000, guid: d35bd1fbb0157d1469488c1903bf11c1, type: 3}
+  - {fileID: 8300000, guid: 3584fba5dc7b5934b84066629c2d5706, type: 3}
+  - {fileID: 8300000, guid: 1d842450f3c3f31408b7e4b9f5498247, type: 3}
+  deathSoundVolume: 0.25
   health: 0
   dead: 0
 --- !u!120 &1924337239024626647

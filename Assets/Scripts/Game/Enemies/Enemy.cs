@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour {
     public CameraShakeData cameraShake;
     public float traumaOnDamage = 0.025f;
     public float traumaOnDeath = 0.1f;
+    public AudioClip[] deathSounds;
+    public float deathSoundVolume;
 
     [ViewOnly] public int health;
     [ViewOnly] public bool dead;
@@ -87,6 +89,7 @@ public class Enemy : MonoBehaviour {
         destructionEffect.Play();
         int maxLifeOrbs = waveData.currentWave / 4 + 2;
         LifeOrbUtility.instance?.CreateOrbsAt(transform.position, Random.Range(1, maxLifeOrbs));
+        SoundEffectUtility.instance.PlaySound(deathSounds[Random.Range(0, deathSounds.Length)], deathSoundVolume);
         yield return new WaitForSeconds(destructionEffect.duration);
         Destroy(gameObject);
     }
