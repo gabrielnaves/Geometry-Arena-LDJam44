@@ -62,7 +62,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d35bd1fbb0157d1469488c1903bf11c1, type: 3}
   - {fileID: 8300000, guid: 3584fba5dc7b5934b84066629c2d5706, type: 3}
   - {fileID: 8300000, guid: 1d842450f3c3f31408b7e4b9f5498247, type: 3}
-  deathSoundVolume: 0.25
+  deathSoundVolume: 0.1
+  damageSound: {fileID: 8300000, guid: 199e51011a1f48942a926fc070b15626, type: 3}
+  damageSoundVolume: 0.5
   health: 0
   dead: 0
 --- !u!120 &1924337239024626647

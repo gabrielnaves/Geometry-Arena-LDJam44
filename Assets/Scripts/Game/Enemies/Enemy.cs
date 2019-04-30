@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour {
     public float traumaOnDeath = 0.1f;
     public AudioClip[] deathSounds;
     public float deathSoundVolume;
+    public AudioClip damageSound;
+    public float damageSoundVolume = 0.5f;
 
     [ViewOnly] public int health;
     [ViewOnly] public bool dead;
@@ -71,6 +73,8 @@ public class Enemy : MonoBehaviour {
         health -= amount;
         if (health <= 0)
             Kill();
+        else
+            SoundEffectUtility.instance.PlaySound(damageSound, damageSoundVolume);
     }
 
     void Kill() {

@@ -7,6 +7,10 @@ public class Player : MonoBehaviour {
     public PlayerData data;
     public PlayerManager playerManager;
     public CameraShakeData cameraShake;
+    public AudioClip deathSound;
+    public float deathSoundVolume;
+    public AudioClip damagedSound;
+    public float damagedSoundVolume;
     public float traumaOnDamage;
     [ViewOnly] public bool damaged;
 
@@ -41,8 +45,10 @@ public class Player : MonoBehaviour {
             damaged = true;
             data.ReceiveDamage(damage);
             NumbersUtility.instance.CreateNumberAt(transform.position + Vector3.up, damage);
-            if (!data.dead)
+            if (!data.dead) {
+                SoundEffectUtility.instance.PlaySound(damagedSound, damagedSoundVolume);
                 body.velocity = (transform.position - source.position).normalized * data.maxSpeed;
+            }
             else
                 StartCoroutine(DeathRoutine());
         }
@@ -58,6 +64,7 @@ public class Player : MonoBehaviour {
         body.velocity = Vector2.zero;
         body.angularVelocity = 0;
         destructionEffect.Play();
+        SoundEffectUtility.instance.PlaySound(deathSound, deathSoundVolume);
         yield return new WaitForSeconds(destructionEffect.duration);
         Destroy(gameObject);
     }

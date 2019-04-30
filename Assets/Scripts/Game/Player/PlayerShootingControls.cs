@@ -7,6 +7,8 @@ public class PlayerShootingControls : MonoBehaviour {
     public PlayerData data;
     public InputData input;
     public Transform bulletPos;
+    public AudioClip shootingSound;
+    public float shootingSoundVolume = .4f;
 
     Rigidbody2D body;
     bool cooldown;
@@ -44,5 +46,7 @@ public class PlayerShootingControls : MonoBehaviour {
         bullet.SetVelocity(velocity);
         bullet.damage = data.damage;
         bullet.piercing = data.piercingBullets;
+
+        SoundEffectUtility.instance.PlaySound(shootingSound, shootingSoundVolume);
     }
 }
